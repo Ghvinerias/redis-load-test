@@ -1,6 +1,6 @@
 FROM python:3-alpine
 LABEL org.opencontainers.image.source="https://github.com/ghvinerias/redis-load-test"
-RUN apk --no-cache add build-base gettext
+RUN apk --no-cache add build-base gettext gcc python3-dev
 WORKDIR /redis-load-test
 COPY ./Scripts /redis-load-test/Scripts
 WORKDIR /redis-load-test/Scripts
