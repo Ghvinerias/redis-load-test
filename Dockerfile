@@ -1,4 +1,5 @@
 FROM python:3.7-slim-stretch
+LABEL org.opencontainers.image.source="https://github.com/ghvinerias/redis-load-test"
 RUN apt-get -y update && apt-get -y install build-essential
 RUN apt-get -y install gettext-base 
 RUN mkdir /redis-load-test
