@@ -1,9 +1,8 @@
-FROM python:3
+FROM python:3-alpine
 LABEL org.opencontainers.image.source="https://github.com/ghvinerias/redis-load-test"
-RUN apt-get -y update && apt-get -y install build-essential
-RUN apt-get -y install gettext-base 
-RUN mkdir /redis-load-test
+RUN apk --no-cache add build-base gettext
+WORKDIR /redis-load-test
 COPY ./Scripts /redis-load-test/Scripts
 WORKDIR /redis-load-test/Scripts
-RUN pip3 install -r requirments.txt
+RUN pip install --no-cache-dir -r requirments.txt
 CMD ["/redis-load-test/Scripts/start.sh"]
